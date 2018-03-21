@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { NavController, Slides } from 'ionic-angular';
+
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
+
+@ViewChild('carousel') carousel:Slides;
 
   slides=[
     { 
@@ -26,5 +29,15 @@ export class HomePage {
 
 
  constructor(public navCtrl: NavController) {  }
+
+ volver(){
+   this.carousel.slideTo(0,1000);
+ }
+ anterior(){
+  this.carousel.slidePrev();
+ }
+ siguiente(){
+  this.carousel.slideNext();
+ }
 
 }
